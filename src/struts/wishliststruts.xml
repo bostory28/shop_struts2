@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="wishlist" namespace="/wishlist" extends="default">
+		<action name="selectBook" class="shop.wishlist.WishlistAction" method="selectBook">
+			<result>/book/listselected.jsp</result>
+		</action>
+		<action name="deleteWishlist" class="shop.wishlist.WishlistAction" method="deleteWishlist">
+			<result>/book/listselected.jsp</result>
+		</action>
+		<action name="selectedBooks" class="shop.wishlist.WishlistAction" method="selectedBooks">
+			<result>/book/listselected.jsp</result>
+		</action>
+	</package>
+</struts>

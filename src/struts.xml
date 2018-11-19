@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <!-- Json 플러그인 사용. json타입의 Result 사용. -->
+        <result-types>
+        	<result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>    
+        </result-types>
+        
+        <interceptors>
+        	<interceptor name="interceptorLogin" class="common.InterceptorLogin"/>
+        	<interceptor-stack name="interceptor">
+        		<interceptor-ref name="defaultStack"/>
+        		<interceptor-ref name="interceptorLogin"/>
+        	</interceptor-stack>
+        </interceptors>
+        
+     <!--    <default-action-ref name="index"/> -->
+        
+        <global-results>
+        	<result name="login">/member/loginform.jsp</result>
+        </global-results>
+        
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+         
+   </package>
+   <include file="struts/memberstruts.xml"></include>
+   <include file="struts/bookstruts.xml"></include>
+   <include file="struts/salestruts.xml"></include>
+   <include file="struts/wishliststruts.xml"></include>
+</struts>

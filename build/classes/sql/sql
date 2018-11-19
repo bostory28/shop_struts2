@@ -1,0 +1,22 @@
+create table member(
+id varchar2(20) primary key,
+password varchar(20) not null,
+name varchar(20) not null,
+address varchar(100),
+phone varchar(50));
+
+create table book(
+code number primary key,
+title varchar(50) not null,
+price number default 0,
+quantity number default 0);
+
+create table sale(
+id varchar(20) not null,
+code number not null,
+cnt number default 0,
+inputdate date default sysdate);
+
+create table wishlist(
+id varchar(20) not null,
+code number not null);

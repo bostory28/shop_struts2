@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="member" namespace="/member" extends="default">
+		<action name="goMemberForm">
+			<result>/member/memberjoin.jsp</result>
+		</action>
+		<action name="goLoginForm">
+			<result>/member/loginform.jsp</result>
+		</action>
+		<action name="joinMember" class="shop.member.MemberAction" method="joinMember">
+			<result type="json"></result>
+		</action>
+		<action name="login" class="shop.member.MemberAction" method="login">
+			<result type="json"></result>
+		</action>
+		<action name="logout" class="shop.member.MemberAction" method="logout">
+			<result type="redirect">/index.jsp</result>
+		</action>
+	</package>
+</struts>

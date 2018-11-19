@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="book">
+	<select id="bookList" resultType="Book">
+		select * from book order by code
+	</select>
+	<select id="infoOneOfBooks" parameterType="int" resultType="Book">
+		select * from book where code = #{code}
+	</select>
+	<update id="editBookCount" parameterType="hashmap">
+		update book set quantity = #{quantity} - #{cnt} where code = #{code}
+	</update>
+	<select id="getBookSold" resultType="BestSeller">
+		select * from (select s.code, b.title, b.price, sum(s.cnt) count from sale s, book b where s.code = 
+		b.code group by s.code, b.title, b.price) where count = (select max(cnt) from (select sum(cnt) cnt from sale group by code))
+	</select>
+</mapper>
+

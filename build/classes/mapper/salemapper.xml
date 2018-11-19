@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sale">
+	<insert id="purchaseBook" parameterType="Sale">
+		insert into sale values(#{id}, #{code}, #{cnt}, sysdate)
+	</insert>
+	
+	<select id="getSalelistOfId" parameterType="String" resultType="SaleBook">
+		select to_char(s.inputdate, 'yyyy/mm/dd') inputdate, s.code, b.title, b.price, s.cnt, b.price * s.cnt sum 
+		from sale s, book b where s.code = b.code and s.id = #{id}
+	</select>
+</mapper>

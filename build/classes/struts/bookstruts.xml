@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="book" namespace="/book" extends="default">
+		<action name="bookList" class="shop.book.BookAction" method="bookList">
+			<result>/book/bookform.jsp</result>
+		</action>
+		<action name="infoOneOfBooks" class="shop.book.BookAction" method="infoOneOfBooks">
+			<result>/book/oneofbook.jsp</result>
+		</action>
+		<action name="purchaseBook" class="shop.book.BookAction" method="purchaseBook">
+			<result>/book/listpurchased.jsp</result>
+		</action>
+		<action name="bestseller" class="shop.book.BookAction" method="bestseller">
+			<result>/book/bestseller.jsp</result>
+		</action>
+	</package>
+</struts>

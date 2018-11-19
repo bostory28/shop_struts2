@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wishlist">
+	<insert id="insertSelectedBook" parameterType="Wishlist">
+		insert into wishlist values(#{id}, #{code})
+	</insert>
+	<select id="getSelectedBook" parameterType="String" resultType="WishlistBook">
+		select w.code, b.title, b.price from wishlist w, book b
+		where w.code = b.code and w.id = #{id}
+	</select>
+	<delete id="deleteWishlist" parameterType="Wishlist">
+		delete from wishlist where id = #{id} and code = #{code}
+	</delete>
+</mapper>
